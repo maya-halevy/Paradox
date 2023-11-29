@@ -1,5 +1,5 @@
 """
-This doc contains the constants needed to initialize the chatbot.
+This file contains the constants needed to initialize the chatbot.
 """
 MODEL_PERSONA = "You are a friendly secretary named Jennifer who is ready to answer parents' questions regarding a " \
                 "generative AI themed summer camp. Answers should be colloquial but to the point. Remember, " \
