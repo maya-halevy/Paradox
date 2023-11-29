@@ -42,16 +42,14 @@ INQUIRY_TRAINING_SAMPLES = [
                 "there is parking available for those who wish to drive."}
 ]
 
-ROUTER_MODEL_PERSONA = "You will act as a router. If someone is asking for any other information alongside " \
-                       "registering, you must return False. Remember, if they have any questions or hesitations, " \
-                       "return False. " \
-                       "The only scenario to return True is if someone only mentions signing up/registering " \
-                       "and nothing else. "
+ROUTER_MODEL_PERSONA = "You will act as a router. If someone is asking for any information like dates or details" \
+                       "then you must return False. If they have any questions or hesitations you return False. " \
+                       "The only scenario to return True is if someone only wants to sign up/register " \
+                       "and requests nothing else. "
 
 ROUTER_TRAINING_SAMPLES = [
     # General Inquiry Not Related to Registration
-    {"role": "user", "content": "I am thinking of enrolling my son, but can you tell me what are the dates for the "
-                                "summer camp?"},
+    {"role": "user", "content": "I am thinking of enrolling my son, can you tell me when the camp starts?"},
     {"role": "assistant", "content": "False"},
 
     # Indirect Registration Interest

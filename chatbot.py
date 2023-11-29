@@ -120,9 +120,7 @@ def main():
             # router chatbot to check if user is ready to register
             if call_router_chatbot(user_input).strip() == 'True':
                 # register camper
-                print(
-                    "Let's get you registered! This won't take long. \nWe will start with info on the parent, what is your full name?")
-
+                handle_registration()
                 break  # exit program after camper is registered
             else:
                 # inquiry chatbot
