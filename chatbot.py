@@ -1,3 +1,7 @@
+"""
+This file runs the entire program (main), simply run the script and the chat will begin in the console.
+"""
+
 import openai
 import constants
 import sys
@@ -24,7 +28,7 @@ def handle_registration():
     camper's registration information.
     """
     print("\nLet's get you registered! We will just need you to give us some details.\n")
-    # TODO: add data integrity checks if time permits
+    # Note: add data integrity checks if time permits
     parent_name = input("Enter your full name: ")
     child_name = input("Enter your child's full name: ")
     phone_number = input("Enter your phone number: ")
@@ -33,6 +37,7 @@ def handle_registration():
     additional_info = input("Enter any additional info we should know: ")
 
     # Save registration info
+    # Note: child name is used as a key only for demo purposes
     registration_info[child_name] = {
         "Parent Name": parent_name,
         "Phone Number": phone_number,
