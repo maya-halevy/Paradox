@@ -31,7 +31,7 @@ As for the router model I tested it on many wordy examples, to make sure it perf
 ---
 ![conversation with Jennifer](chat_snapshot.jpg)
 ---
-Note: Ran on pycharm console, user input in green
+Note: User input in green
 
 ### What edge cases do you think are not handled currently that you would add?
 
