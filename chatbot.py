@@ -39,17 +39,25 @@ def handle_registration():
     child's name, phone number, etc., and stores this information. :return: dict: A dictionary containing the
     camper's registration information.
     """
-    print("\nLet's get you registered! \nWe will just need you to fill out some details.\n")
+    print("\nLet's get you registered! \nThis won't take long.\n")
     # Note: add data integrity checks if time permits
-    parent_name = input("Enter your full name: ")
-    child_name = input("Enter your child's full name: ")
-    phone_number = input("Enter your phone number: ")
-    email = input("Enter your email: ")
-    child_age = input("Enter your child's age in years: ")
-    additional_info = input("Enter any additional info we should know?: ")
+    parent_name = input("We will start with the parent's info, what is your full name?\n")
+    child_name = input("What is your child's full name?\n ")
+    phone_number = input("Please enter your phone number\n")
+    email = input("Please enter your email\n")
+    print("How old is your child?")
+    while True:
+        try:
+            child_age = int(input("Please enter their age in years: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    if int(child_age) < 7 or int(child_age) > 14:
+        print("We're sorry, the GenAI summer camp is only available for campers between the ages of 7 and 14")
+    additional_info = input("Is there any additional info we should know?: ")
 
-    # Save registration info
-    # Note: child name is used as a key only for demo purposes
+    # Save registration info, even for kids who are too young/old
+    # Note: child name is used as a key for demo purposes
     registration_info[child_name] = {
         "Parent Name": parent_name,
         "Phone Number": phone_number,
@@ -57,7 +65,8 @@ def handle_registration():
         "Child Age": child_age,
         "Notes": additional_info
     }
-    print(f"\nThat's it! We will contact you shortly at {email} to complete the registration process.")
+    print(f"\nAll done! We will contact you shortly at {email} to complete the registration process and answer "
+          f"any additional questions.")
     return registration_info
 
 
@@ -111,7 +120,9 @@ def main():
             # router chatbot to check if user is ready to register
             if call_router_chatbot(user_input).strip() == 'True':
                 # register camper
-                handle_registration()
+                print(
+                    "Let's get you registered! This won't take long. \nWe will start with info on the parent, what is your full name?")
+
                 break  # exit program after camper is registered
             else:
                 # inquiry chatbot
