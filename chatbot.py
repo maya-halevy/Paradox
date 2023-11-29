@@ -19,7 +19,7 @@ def call_router_chatbot(input_message):
     Exception: If an error occurs during the API call.
     """
     try:
-        conversation_history = [{"role": "system", "content": constants.ROUTER_MODEL_PERSONA}]
+        conversation_history = [{"role": "system", "content": constants.ROUTER_MODEL_PERSONA}]  # set the model persona
         conversation_history.extend(
             constants.ROUTER_TRAINING_SAMPLES + [{"role": "user", "content": input_message}])
 
@@ -69,7 +69,7 @@ def call_inquiry_chatbot(input_message):
     Exception: If an error occurs during the API call.
     """
     try:
-        conversation_history = [{"role": "system", "content": constants.INQUIRY_MODEL_PERSONA}]
+        conversation_history = [{"role": "system", "content": constants.INQUIRY_MODEL_PERSONA}]  # set the model persona
         conversation_history.extend(constants.INQUIRY_TRAINING_SAMPLES + [{"role": "user", "content": input_message}])
 
         completion = openai.ChatCompletion.create(
