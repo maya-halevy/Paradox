@@ -19,14 +19,15 @@ Execute chatbot.py to start the chatbot. Interact with the chatbot in the consol
 
 ### How would you optimize the process if you had more time?
 
-I would incorporate another chatbot to discuss registration details with the parent, and then send that conversation to a model in order to parse the registration info from the conversation.
 Currently, both models are spending around 500 tokens (approximated using tiktoken) for establishing their persona and training. With more time I would be able to reduce the number of tokens by only including a few key training examples, maximizing cost effectiveness. 
+
+Additionally, I would incorporate another chatbot to discuss registration details with the parent, and then send that conversation to a model in order to parse the registration info from the conversation.
 
 ### How would you test the prompts' performance?
 
-I have tested the prompts performance over several possible conversations. The general inquiry chatbot was originally consistently telling parents that the camp provided transportation services, despite the training samples indicating otherwise. I decided to consult chatgpt on this, and foudn that the most likelyt reason is that gpt.3.5 training data contains far more situations of camps providing transportation than not. I wanted to stick with this policy as it would help demonstrate that the chatbot is able to be effectively trained even with few shot learning. Once I incorporated this element into the model's persona, instead of just leaving it as a training example, the model began responding correctly. 
+I have tested the prompts performance over several possible conversations. The general inquiry chatbot was originally consistently telling parents that the camp provided transportation services, despite the training samples indicating otherwise. After discussing this with ChatGPT I found that the most likely reason for this is that gpt-3.5 training data contains far more situations of camps providing transportation than not. I wanted to stick with the policy of the camp not providing transportation as it would help demonstrate that the chatbot is able to be effectively trained with few shot learning. 
 
-As for the router model I tested it on many wordy examples, to make sure it performed beyond a hard-coded program that simply searches for the keywords 'enroll', 'register', 'apply', etc. This model is now able to understand nuance, and only deploys the registration form when the user is ready to fill it. 
+As for the router model I tested it on many wordy examples, to make sure it out-performed a hard-coded program that simply searches for 'enroll' or 'register' keywords. This model is now able to understand nuance, and only deploys the registration form when the user is ready to fill it. 
 
 **Prompt Performance:**
 ---
