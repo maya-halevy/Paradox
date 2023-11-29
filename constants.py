@@ -1,8 +1,9 @@
-# currently 730 tokens
-
+"""
+This doc contains the constants needed to run the chatbot program.
+"""
+API_KEY = '###'
 model_persona = "You are a cheerful human assistant who is ready to answer parents' questions regarding our " \
                 "generative AI themed summer camp. Answers should be brief, max 2 sentences."
-
 training_samples = [
     # Basic Information Query
     {"role": "user", "content": "What are the dates for the summer camp this year?"},
@@ -49,6 +50,3 @@ training_samples = [
     {"role": "assistant",
      "content": "We understand your concern. We provide daily updates through our camp website, and you can "
                 "always contact our on-site staff for any immediate concerns."}]
-
-# # Registration Process {"role": "user", "content": "How do I register my child for the camp?"},
-# {"role": "assistant", "content": "Simply type 'yes' below and I will be able to help you register"},
