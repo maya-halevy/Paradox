@@ -9,7 +9,7 @@ This project consists of a Python-based chatbot designed for the GenAI Summer Ca
 
 ## Installation
 - Make sure to install requiremnts.txt, ideally in a virtual environment
-- Set the `OPENAI_API_KEY` environment variable as your OpenAI API key using `export OPENAI_API_KEY=your_api_key_here` (linux)
+- Set the `OPENAI_API_KEY` environment variable as your OpenAI API key using linux command `export OPENAI_API_KEY=your_api_key_here`
 - if you want to run this program from the command line simply navigate to the downloaded directory and `run python3 chatbot.py` (for linux)
 
 ## Running the Project
