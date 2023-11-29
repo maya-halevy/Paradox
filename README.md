@@ -8,9 +8,9 @@
 This project consists of a Python-based chatbot designed for the GenAI Summer Camp. The chatbot, named Jennifer, assists in handling inquiries about the camp and managing the registration process for campers parents. The project is structured into two main files: chatbot.py, which contains the main logic, and constants.py, which houses the necessary constants for initializing the chatbots.
 
 ## Installation
-- Ensure Python is installed on your system.
-- Install the openai Python package: `pip install openai`
-- Set the `OPENAI_API_KEY` environment variable with your OpenAI API key.
+- Make sure to run requiremnts.txt, ideally in a virtual environment
+- Set the `OPENAI_API_KEY` environment variable as your OpenAI API key
+- if you want to run this program from the command line simply navigate to the downloaded directory and `run python3 chatbot.py` (for linux)
 
 ## Running the Project
 Execute chatbot.py to start the chatbot. Interact with the chatbot in the console to get information about the GenAI Summer Camp or to proceed with the registration.
