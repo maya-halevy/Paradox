@@ -7,18 +7,31 @@ import constants
 import sys
 import os
 
-# store registration info
+# store registration info (not utilized because script is to demonstrate chatbots)
 registration_info = {}
 
 
-def check_for_registration_intent(user_input):
+def call_router_chatbot(input_message):
     """
-    Check if the user's input indicates an intent to register.
-    :param user_input: (str): The input text from the user.
-    :return: bool: True if the input includes keywords related to registration, False otherwise.
+    Calls the router model to get a classification if the user is ready to register or not.
+    :param: input_message: (str): The message from the user.
+    :return: str: True or False
+    Exception: If an error occurs during the API call.
     """
-    keywords = ['register', 'registration', 'sign-up', 'sign up', 'sign', 'application', 'apply', 'enroll']
-    return any(word in user_input for word in keywords)
+    try:
+        conversation_history = [{"role": "system", "content": constants.ROUTER_MODEL_PERSONA}]
+        conversation_history.extend(
+            constants.ROUTER_TRAINING_SAMPLES + [{"role": "user", "content": input_message}])
+
+        completion = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=conversation_history
+        )
+        print(completion.choices[0].message.content)
+        return completion.choices[0].message.content
+    except Exception as e:
+        print(f"An error occurred: {e} call_registration_chatbot")
+        sys.exit(1)
 
 
 def handle_registration():
@@ -27,14 +40,14 @@ def handle_registration():
     child's name, phone number, etc., and stores this information. :return: dict: A dictionary containing the
     camper's registration information.
     """
-    print("\nLet's get you registered! We will just need you to give us some details.\n")
+    print("\nLet's get you registered! \nWe will just need you to fill out some details.\n")
     # Note: add data integrity checks if time permits
     parent_name = input("Enter your full name: ")
     child_name = input("Enter your child's full name: ")
     phone_number = input("Enter your phone number: ")
     email = input("Enter your email: ")
     child_age = input("Enter your child's age in years: ")
-    additional_info = input("Enter any additional info we should know: ")
+    additional_info = input("Enter any additional info we should know?: ")
 
     # Save registration info
     # Note: child name is used as a key only for demo purposes
@@ -49,7 +62,7 @@ def handle_registration():
     return registration_info
 
 
-def call_chatbot(input_message):
+def call_inquiry_chatbot(input_message):
     """
     Calls the chatbot model to get a response to the user's input.
     :param: input_message: (str): The message from the user to which the chatbot will respond.
@@ -57,8 +70,8 @@ def call_chatbot(input_message):
     Exception: If an error occurs during the API call.
     """
     try:
-        conversation_history = [{"role": "system", "content": constants.MODEL_PERSONA}]
-        conversation_history.extend(constants.TRAINING_SAMPLES + [{"role": "user", "content": input_message}])
+        conversation_history = [{"role": "system", "content": constants.INQUIRY_MODEL_PERSONA}]
+        conversation_history.extend(constants.INQUIRY_TRAINING_SAMPLES + [{"role": "user", "content": input_message}])
 
         completion = openai.ChatCompletion.create(
             model='gpt-3.5-turbo',
@@ -66,7 +79,7 @@ def call_chatbot(input_message):
         )
         return completion.choices[0].message.content
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred: {e} call_inquiry_chatbot")
         sys.exit(1)
 
 
@@ -82,31 +95,29 @@ def main():
     openai.api_key = api_key
 
     print("\n*** Welcome to GenAI Summer Camp! *** \n\nTo leave the conversation, type 'exit' at any time."
-          "\n\nHi there! I'm Jennifer, I'm happy to answer any questions you have regarding our summer camp.\n")
+          "\n\nHi there! I'm Jennifer, how can I help you today?\n")
 
     while True:
-        # get user input
+
         user_input = input().strip()
         while not user_input:
             user_input = input('Please enter a question\n').strip()
 
-        # exit program
+        # opportunity to exit program
         if user_input in ['exit', 'quit']:
             break
 
-        # see if user wants to register
-        elif check_for_registration_intent(user_input):
-            if input("\nProceed to registration? Type 'yes': ").strip().lower() == 'yes':
-                handle_registration()
-                print("\nDo you have any additional questions? \n\nIf not, simply type 'exit'.")
-            else:
-                print("Okay, what can I help you with today?")
-                continue
-
-        # run chatbot
+        # run chatbots
         else:
-            response = call_chatbot(user_input)
-            print('\nJennifer:', response, '\n')
+            # router chatbot to check if user is ready to register
+            if call_router_chatbot(user_input).strip() == 'True':
+                # register camper
+                handle_registration()
+                break  # exit program after camper is registered
+            else:
+                # inquiry chatbot
+                response = call_inquiry_chatbot(user_input)
+                print('\nJennifer:', response, '\n')
 
     print('Thank you!')
     sys.exit(1)

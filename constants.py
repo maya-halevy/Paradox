@@ -42,32 +42,47 @@ INQUIRY_TRAINING_SAMPLES = [
                 "there is parking available for those who wish to drive."}
 ]
 
-REGISTRATION_MODEL_PERSONA = "You need to determine if someone is ready to register or if they are asking for " \
-                             "further information. Return True only if they are asking to register, otherwise return " \
-                             "False. They may use words like register, enroll, apply, or sign up, but if their intent " \
-                             "is to get camp information, the answer should be False."
+ROUTER_MODEL_PERSONA = "You will act as a router. If someone is asking for any other information alongside " \
+                       "registering, you must return False. Remember, if they have any questions or hesitations, " \
+                       "return False. " \
+                       "The only scenario to return True is if someone only mentions signing up/registering " \
+                       "and nothing else. "
 
-REGISTRATION_INTENT_TRAINING_SAMPLES = [
+ROUTER_TRAINING_SAMPLES = [
     # General Inquiry Not Related to Registration
-    {"role": "user", "content": "I am thinking of enrolling my son, what are the dates for the summer camp?",
-     "model_output": False},
+    {"role": "user", "content": "I am thinking of enrolling my son, but can you tell me what are the dates for the "
+                                "summer camp?"},
+    {"role": "assistant", "content": "False"},
+
     # Indirect Registration Interest
-    {"role": "user", "content": "How do I sign up for the camp?", "model_output": True},
+    {"role": "user", "content": "How do I sign up for the camp? I am really excited to join"},
+    {"role": "assistant", "content": "True"},
+
     # Seeking More Information
-    {"role": "user", "content": "I really want to register! Can you tell me more about the camp activities?",
-     "model_output": False},
+    {"role": "user", "content": "I really want to register! Can you tell me more about the camp activities?"},
+    {"role": "assistant", "content": "False"},
+
     # Asking About Availability for Registration
-    {"role": "user", "content": "Are there still spots available for the summer camp?", "model_output": True},
+    {"role": "user", "content": "Are there still spots available for the summer camp?"},
+    {"role": "assistant", "content": "True"},
+
     # Inquiry About Cost
-    {"role": "user", "content": "How much does it cost to attend the camp? I really want to sign up but not sure if we "
-                                "can afford it.", "model_output": False},
+    {"role": "user", "content": "How much does it cost to attend the camp? I really want to sign up."},
+    {"role": "assistant", "content": "False"},
+
     # Direct Registration Query
-    {"role": "user", "content": "I'd like to enroll my daughter for the camp, what's the next step?",
-     "model_output": True},
+    {"role": "user", "content": "I'd like to enroll my daughter for the camp, what's the next step?"},
+    {"role": "assistant", "content": "True"},
+
     # Seeking Specific Details Unrelated to Registration
-    {"role": "user", "content": "What age group is the summer camp for?", "model_output": False},
-    # Wanting to register
-    {"role": "user", "content": "Ok! How can I apply?", "model_output": True},
+    {"role": "user", "content": "I am thinking of registering, but I don't know where the camp is located"},
+    {"role": "assistant", "content": "False"},
+
+    # Wanting to register but have a problem
+    {"role": "user", "content": "I want to enroll my son but he has many food allergies."},
+    {"role": "assistant", "content": "False"},
+
     # Dietary Concerns With Intent to Register
-    {"role": "user", "content": "My child has dietary restrictions, can I still register them?", "model_output": False},
+    {"role": "user", "content": "My child has dietary restrictions, can I still register them?"},
+    {"role": "assistant", "content": "False"}
 ]
