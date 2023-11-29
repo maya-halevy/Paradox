@@ -27,7 +27,6 @@ def call_router_chatbot(input_message):
             model='gpt-3.5-turbo',
             messages=conversation_history
         )
-        print(completion.choices[0].message.content)
         return completion.choices[0].message.content
     except Exception as e:
         print(f"An error occurred: {e} call_registration_chatbot")
