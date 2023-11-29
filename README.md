@@ -27,15 +27,15 @@ I have tested the prompts performance over several possible conversations. The g
 
 As for the router model I tested it on many wordy examples, to make sure it performed beyond a hard-coded program that simply searches for the keywords 'enroll', 'register', 'apply', etc. This model is now able to understand nuance, and only deploys the registration form when the user is ready to fill it. 
 
-Below I will include a brief snippet of a conversation with Jennifer, ran on pycharm console:
+**Prompt Performance:**
 ---
 ![conversation with Jennifer](chat_snapshot.jpg)
 ---
+Note: Ran on pycharm console, user input in green
+
 ### What edge cases do you think are not handled currently that you would add?
 
-It would be useful to add user input validation, handling of irrelevant inputs, and adding other languages.
-
-
+It would be useful to add user input validation, handling of irrelevant inputs, better exit strategy, and adding other languages.
 
 
 
