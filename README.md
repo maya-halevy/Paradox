@@ -20,6 +20,7 @@ Execute chatbot.py to start the chatbot. Interact with the chatbot in the consol
 ### How would you optimize the process if you had more time?
 
 I would incorporate another chatbot to discuss registration details with the parent, and then send that conversation to a model in order to parse the registration info from the conversation.
+Currently, both models are spending around 500 tokens (approximated using tiktoken) for establishing their persona and training. With more time I would be able to reduce the number of tokens by only including a few key training examples, maximizing cost effectiveness. 
 
 ### How would you test the prompts' performance?
 
