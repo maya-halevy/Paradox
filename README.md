@@ -15,6 +15,9 @@ This project consists of a Python-based chatbot designed for the GenAI Summer Ca
 ## Running the Project
 Execute chatbot.py to start the chatbot. Interact with the chatbot in the console to get information about the GenAI Summer Camp or to proceed with the registration.
 
+## Generation of GenAI Summer Camp 🌞🤖🌟
+Get ready for an extraordinary adventure at the GenAI Summer Camp! Held at the Tel Aviv University from August 18 to 29, 2024, this camp is perfect for youngsters aged 7-14 who are eager to dive into the world of technology and machine learning. At GenAI, we blend thrilling outdoor activities like swimming and games with engaging workshops on tech topics, all in a supportive and fun environment. Enjoy top-notch facilities, including a university swimming pool and a cafeteria! Join us for a summer to remember. 
+
 ## Open Questions
 
 ### How would you optimize the process if you had more time?
