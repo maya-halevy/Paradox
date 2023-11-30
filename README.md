@@ -10,7 +10,7 @@ This project consists of a Python-based chatbot designed for the GenAI Summer Ca
 ## Instructions to Run the Project
 - Clone the repo and activate a virtual enviornment inside it 
 - Install the dependancies using `pip install -r requirements.txt`
-- Set the `OPENAI_API_KEY` environment variable as your OpenAI API key using linux command `export OPENAI_API_KEY=your_api_key_here`
+- Set the OPENAI_API_KEY environment variable as your OpenAI API key using linux command `export OPENAI_API_KEY=your_api_key_here`
 - Execute the program from the command line using `python3 chatbot.py`. 
 
 ## Generation of GenAI Summer Camp 🌞🤖🌟
