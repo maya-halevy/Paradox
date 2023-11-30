@@ -7,13 +7,11 @@
 ## Overview
 This project consists of a Python-based chatbot designed for the GenAI Summer Camp. The chatbot, named Jennifer, assists in handling inquiries about the camp and managing the registration process for campers parents. The project is structured into two main files: chatbot.py, which contains the main logic, and constants.py, which houses the necessary constants for initializing the chatbots.
 
-## Installations 
-- Download the repo and activate a virtual enviornment inside it 
+## Instructions to Run the Project
+- Clone the repo and activate a virtual enviornment inside it 
 - Install the dependancies using `pip install -r requirements.txt`
 - Set the `OPENAI_API_KEY` environment variable as your OpenAI API key using linux command `export OPENAI_API_KEY=your_api_key_here`
-
-## Running the Project
-Execute the program from the command line using `python3 chatbot.py`. Interact with the assistant in the console to get information about the GenAI Summer Camp or to proceed with the registration.
+- Execute the program from the command line using `python3 chatbot.py`. 
 
 ## Generation of GenAI Summer Camp 🌞🤖🌟
 Get ready for an extraordinary adventure at the GenAI Summer Camp! Held at the Tel Aviv University from August 18 to 29, 2024, this camp is perfect for youngsters aged 7-14 who are eager to dive into the world of technology and machine learning. At GenAI, we blend traditional outdoor activities like swimming and games with engaging workshops on tech topics, all in a supportive and fun environment. Enjoy top-notch facilities, including a university swimming pool and a cafeteria! Join us for a summer to remember. 
