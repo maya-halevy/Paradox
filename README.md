@@ -11,7 +11,7 @@ This project consists of a Python-based chatbot designed for the GenAI Summer Ca
 - Clone the repo and activate a virtual enviornment inside it 
 - Install the dependancies using `pip install -r requirements.txt`
 - Set your API key as an environment variable using `export OPENAI_API_KEY=your_api_key_here`
-- Execute the program from the command line using `python3 chatbot.py`. 
+- Execute the program from the command line using `python3 chatbot.py`
 
 ## Generation of GenAI Summer Camp 🌞🤖🌟
 Get ready for an extraordinary adventure at the GenAI Summer Camp! Held at the Tel Aviv University from August 18 to 29, 2024, this camp is perfect for youngsters aged 7-14 who are eager to dive into the world of technology and machine learning. At GenAI, we blend traditional outdoor activities like swimming and games with engaging workshops on tech topics, all in a supportive and fun environment. Enjoy top-notch facilities, including a university swimming pool and a cafeteria! Join us for a summer to remember. 
